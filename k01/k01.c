@@ -3,8 +3,10 @@
 #include <string.h>
 #include <math.h>
 
-extern double ave_online(double val,double ave)
-extern double var_online()
+extern double ave_online(double val,double ave);
+extern double var_online(double val, double ave, double square_ave);
+
+int N;
 
 int main(void)
 {
@@ -12,7 +14,10 @@ int main(void)
     char fname[FILENAME_MAX];
     char buf[256];
     FILE* fp;
-
+    double ave = 0;
+    double var = 0;
+    double square_ave;
+    
     printf("input the filename of sample:");
     fgets(fname,sizeof(fname),stdin);
     fname[strlen(fname)-1] = '\0';
@@ -24,15 +29,24 @@ int main(void)
         exit(EXIT_FAILURE);
     }
 
+    N=0;
+
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
 
+        N=N+1;
 
-    
+        square_ave=(N-1)*square_ave/N+1*val*val/N;
 
+        ave=ave_online(val,ave);
 
+        var=var_online(val,ave,square_ave);
 
     }
+
+    printf("ave=%lf\n",ave);
+    printf("var=%lf",var);
+
 
     if(fclose(fp) == EOF){
         fputs("file close error\n",stderr);
@@ -45,3 +59,21 @@ int main(void)
 
 }
 
+double ave_online(double val,double ave)
+{
+    double ave2;
+
+    ave2=(N-1)*ave/N+1*val/N;
+
+    return ave2;
+
+}
+
+double var_online(double val, double ave, double square_ave)
+{
+    double var;
+
+    var=((N-1)*square_ave/N+1*val*val/N)-((N-1)*ave/N+1*val/N)*((N-1)*ave/N+1*val/N);
+
+    return var;
+}
