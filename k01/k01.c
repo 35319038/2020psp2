@@ -7,6 +7,7 @@ extern double ave_online(double val,double ave);
 extern double var_online(double val, double ave, double square_ave);
 
 int N;
+double u,b;
 
 int main(void)
 {
@@ -36,8 +37,8 @@ int main(void)
 
         N=N+1;
 
-        square_ave=(N-1)*square_ave/N+1*val*val/N;
-
+        square_ave= ave_online(val*val,square_ave);
+        
         ave=ave_online(val,ave);
 
         var=var_online(val,ave,square_ave);
@@ -45,8 +46,12 @@ int main(void)
     }
 
     printf("ave=%lf\n",ave);
-    printf("var=%lf",var);
+    printf("var=%lf\n",var);
 
+    u = N * var/(N-1);
+    b = ave;
+printf("母集団平均の推定値=%lf\n",b);
+printf("母集団分散の推定値=%lf",u);
 
     if(fclose(fp) == EOF){
         fputs("file close error\n",stderr);
