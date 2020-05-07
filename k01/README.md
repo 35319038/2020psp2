@@ -50,6 +50,17 @@ l.68:ave2を返す
 l.72:var_onlineの関数を定義
 l.78:varを返す
 
+## 入出力結果
+
+```
+input the filename of sample:../sample/heights_male.csv
+the filename of sample: ../sample/heights_male.csv
+sample mean：
+sample variance：
+population mean (estimated)：
+population variance (estimated)：
+```
+
 ## 修正履歴
 
 - l.39のsquare_aveは，ave_onlineを流用できませんか．
