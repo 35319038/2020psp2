@@ -20,12 +20,22 @@ aa83988848 薗田光太郎
 と計算できる．<img src="/k02/tex/2ec6e630f199f589a2402fdf3e0289d5.svg?invert_in_darkmode&sanitize=true" align=middle width=8.270567249999992pt height=14.15524440000002pt/>は仮定した確率密度関数で，<img src="/k02/tex/27e556cf3caa0673ac49a8f0de3c73ca.svg?invert_in_darkmode&sanitize=true" align=middle width=8.17352744999999pt height=22.831056599999986pt/>はその母数．<img src="/k02/tex/2ec6e630f199f589a2402fdf3e0289d5.svg?invert_in_darkmode&sanitize=true" align=middle width=8.270567249999992pt height=14.15524440000002pt/>が正規分布なら，<img src="/k02/tex/27e556cf3caa0673ac49a8f0de3c73ca.svg?invert_in_darkmode&sanitize=true" align=middle width=8.17352744999999pt height=22.831056599999986pt/>は，平均<img src="/k02/tex/07617f9d8fe48b4a7b3f523d6730eef0.svg?invert_in_darkmode&sanitize=true" align=middle width=9.90492359999999pt height=14.15524440000002pt/>と分散<img src="/k02/tex/e6718aa5499c31af3ff15c3c594a7854.svg?invert_in_darkmode&sanitize=true" align=middle width=16.535428799999988pt height=26.76175259999998pt/>である．
 
 ## ソースコードの説明
-
+l.20:A県男性の平均を代入
+l.21:B県男性の平均を代入
+l.22:A県男性の分散を代入
+l.23:B県男性の分散を代入
+l.42:A県男性における標準化
+l.43:B県男性における標準化
+l.45:yaを計算
+l.46:ybを計算
+l.48:A県生まれの尤もらしさ
+l.49:B県生まれの尤もらしさ
+l.69:出現確率を出力する関数
 ## 入出力結果
 
 ```
-Likelihood for A：
-Likelihood for B：
+Likelihood for A：0.000006
+Likelihood for B：0.000002
 ```
 
 ## 修正履歴
