@@ -3,8 +3,6 @@
 #include <string.h>
 #include <math.h>
 
-extern double p_stdnorm(double ya);
-extern double p_stdnorm(double yb);
 extern double p_stdnorm(double z);
 
 
@@ -15,8 +13,7 @@ int main(void)
     char buf[256];
     FILE* fp;
     double L1=1,L2=1;
-    double ya;
-    double yb;
+    double dateA,dateB,proA,proB;
     double mua=170.8;
     double mub=169.7;
     double sigmaa=5.43;
@@ -36,17 +33,17 @@ int main(void)
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
 
-    ya=0;
-    yb=0;
+    dateA=0;
+    dateB=0;
 
-    ya=(val-mua)/sigmaa;
-    yb=(val-mub)/sigmab;
+    dateA=(val-mua)/sigmaa;
+    dateB=(val-mub)/sigmab;
 
-    ya=p_stdnorm(ya);
-    yb=p_stdnorm(yb);
+    proA=p_stdnorm(dateA);
+    proB=p_stdnorm(dateB);
 
-    L1=L1*ya;
-    L2=L2*yb;
+    L1=L1*proA;
+    L2=L2*proB;
     
         
     }
