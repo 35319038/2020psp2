@@ -13,7 +13,7 @@ int main(void)
     char buf[256];
     FILE* fp;
     double L1=1,L2=1;
-    double dateA,dateB,proA,proB;
+    double dataA,dataB,proA,proB;
     double mua=170.8;
     double mub=169.7;
     double sigmaa=5.43;
@@ -33,14 +33,14 @@ int main(void)
     while(fgets(buf,sizeof(buf),fp) != NULL){
         sscanf(buf,"%lf",&val);
 
-    dateA=0;
-    dateB=0;
+    dataA=0;
+    dataB=0;
 
-    dateA=(val-mua)/sigmaa;
-    dateB=(val-mub)/sigmab;
+    dataA=(val-mua)/sigmaa;
+    dataB=(val-mub)/sigmab;
 
-    proA=p_stdnorm(dateA);
-    proB=p_stdnorm(dateB);
+    proA=p_stdnorm(dataA);
+    proB=p_stdnorm(dataB);
 
     L1=L1*proA;
     L2=L2*proB;
