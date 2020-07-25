@@ -11,7 +11,7 @@ struct HEIGHT_DATA
 
 int main(void)
 {
-    struct HEIGHT_DATA data[13];
+    struct HEIGHT_DATA data[14];
     int id, i=0;
     char fname1[FILENAME_MAX];
     char fname2[FILENAME_MAX];
